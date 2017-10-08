@@ -4,7 +4,6 @@ if ($_SESSION['login'])
 {
 	if ($_POST['oldpw'] && $_POST['newpw'] && $_POST['newpw2'] && $_POST['submit'])	
 	{
-		$check = 1;
 		if ($_POST['newpw'] != $_POST['newpw2'])
 			die("Your passwords did not match. <('^')>");
 		$account = unserialize(file_get_contents('./private/passwd'));

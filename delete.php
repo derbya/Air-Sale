@@ -18,14 +18,16 @@ if ($_POST['login'] && $_POST['passwd'] && $_POST['passwd2'] && $_POST['submit']
 				{
 				unset($account[$key]);
 				file_put_contents('./private/passwd', serialize($account));
-				die("The account has been deleted by an admin <html><body><a href='deleteacc.html'>Go back</a></body></html>");
+				header('Location: index.html');
+				die("The account has been deleted by an admin <html><body><a href='index.html'>home</a></body></html>");
 				}
 			}
 			if ($arg['login'] === $_POST['login'] && $arg['passwd'] === hash('whirlpool', $_POST['passwd']))
 			{
 				unset($account[$key]);
 				file_put_contents('./private/passwd', serialize($account));
-				die("Your account has been deleted <html><body><a href='deleteacc.html'>Go back</a></body></html>");
+				header('Location: index.html');
+				die("Your account has been deleted <html><body><a href='index.html'>home</a></body></html>");
 			}
 		}
 	}

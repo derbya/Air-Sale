@@ -10,6 +10,7 @@
 		if (admin($_POST['login']))
 		{
 			$_SESSION['admin'] = true;
+			header("Location: index.html");
 			echo "You have succesfully logged in and have admin rights.";
 		}
 		else
