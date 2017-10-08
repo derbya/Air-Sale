@@ -1,7 +1,8 @@
 <?php
 session_start();
 $_SESSION['login'] = "";
-echo "why did you leave? :("
+$_SESSION['admin'] = false;
+echo ("why did you leave? :( " . "<html><body><a href='index.html'>HOME</a></body></html>")
 ?>
 
 

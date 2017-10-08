@@ -12,9 +12,19 @@ if ($_SESSION['login'])
 		{
 			foreach ($account as $key => $arg)
 			{
-				if ($arg['login'] === $_SESSION['login'] && $arg['passwd'] === hash('whirlpool', $_POST['oldpw']))
+				if ($_SESSION['admin'] == true)
 				{
-					$account[$key]['passwd'] = hash('whirlpool', $_POST['newpd']);
+					if ($arg['login'] === $_POST['login'])
+					{
+					$account[$key]['passwd'] = hash('whirlpool', $_POST['newpw']);
+					file_put_contents('./private/passwd', serialize($account));
+					echo "the users password has been changed you are admin\n";
+					break;
+					}
+				}
+				else if ($arg['login'] === $_SESSION['login'] && $arg['passwd'] === hash('whirlpool', $_POST['oldpw']))
+				{
+					$account[$key]['passwd'] = hash('whirlpool', $_POST['newpw']);
 					file_put_contents('./private/passwd', serialize($account));
 					echo "Your password has been changed\n";
 					break;
