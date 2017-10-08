@@ -20,7 +20,7 @@ if ($_SESSION['login'])
 		$temp['login'] = $_SESSION['login'];
 		foreach ($basket as $key => $arg)
 		{
-			if ($arg['login'] === $_SESSION['logged_on'])
+			if ($arg['login'] === $_SESSION['login'])
 				$tcart = 1;
 			if ($tcart && !$rem)
 			{
