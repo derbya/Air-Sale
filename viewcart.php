@@ -10,19 +10,21 @@ if ($_SESSION['login'])
 	{
 		mkdir("./private");
 	}
-	if (!file_exists('./private/checkout'))
+	if (!file_exists('./private/cart'))
 	{
 		file_put_contents('./private/cart', null);
 	}
 	$cart = unserialize(file_get_contents('./private/cart'));
+	$temp['login'] = $_SESSION['login'];
 	foreach ($cart as $key => $arg)
 	{
-		print_r($cart[$key]);
+		if ($arg['login'] === $_SESSION['login'])
+		{
+			print_r($cart[$key]]);
+		}
 	}
-	else
-	{
-		echo "We cannot remove 0 things.\n";
-	}
+	if (!$tcart)
+		echo "There is nothing in your cart";
 }
 else
 	echo "You must be logged in to remove items in cart.";

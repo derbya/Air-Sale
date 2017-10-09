@@ -18,7 +18,7 @@ if ($_SESSION['login'])
 		}
 		$cart = unserialize(file_get_contents('./private/cart'));
 		$temp['login'] = $_SESSION['login'];
-		foreach ($basket as $key => $arg)
+		foreach ($cart as $key => $arg)
 		{
 			if ($arg['login'] === $_SESSION['login'])
 				$tcart = 1;
@@ -43,7 +43,7 @@ if ($_SESSION['login'])
 		}
 		if (!$tcart)
 			echo "There is nothing in your cart to remove";
-		print_r($basket);
+		print_r($cart);
 	}
 	else
 	{

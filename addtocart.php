@@ -39,7 +39,7 @@ if ($_SESSION['login'])
 			file_put_contents('./private/cart', serialize($cart));
 			echo "Things have been added to your cart.\n";
 		}
-		print_r($basket);
+		print_r($cart);
 	}
 	else
 	{
